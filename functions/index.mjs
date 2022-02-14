@@ -53,6 +53,10 @@ const getPriceTomorrow = async () => {
     return "";
   }
 
+  if (results.length === 0) {
+    return "Elpriserna för imorgon har inte släppts ännu.";
+  }
+
   const values = results.map((item) => item.value);
 
   return `Imorgon ligger elpriset i snitt på ${formatPrice(avg(values))} och toppar på ${formatPrice(Math.max(...values))}.`;
